@@ -1,9 +1,14 @@
 from fastapi import FastAPI
 from routers.user_router import user_router
 
-app = FastAPI(
-    title='Тестовое приложение',
-    version='0.0.1a'
-)
+def create_app() -> FastAPI:
+    app = FastAPI(
+        title='Тестовое приложение',
+        version='0.0.1a'
+    )
 
-app.include_router(user_router)
+    app.include_router(user_router)
+    
+    return app
+
+app = create_app()
